@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UtilitiesService } from './services/utilities.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MSE';
+
+  constructor(
+    public utilitiesService: UtilitiesService
+  ) {  }
+
+  onActivate(event: any) {
+    window.scrollTo(0,0);
+  }
 }

@@ -1,0 +1,95 @@
+<div class="container">
+    <!-- <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">imagen</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Varita</th>
+                <th scope="col">Casa</th>
+                <th scope="col">Patronus</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let personaje of personajes; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>
+                    <img src="{{personaje.image}}" alt="" width="40px" (click)="modalImagen(personaje.image, personaje.name)">
+                </td>
+                <td>{{personaje.name}}</td>
+                <td>{{personaje.gender}}</td>
+                <td> madera:{{personaje.wand.wood}}<br> nucleo:{{personaje.wand.core}} </td>
+                <td>{{personaje.house}}</td>
+                <td>{{personaje.patronus}}</td>
+            </tr>
+
+        </tbody>
+    </table> -->
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Tabla de resultados</h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Genero</th>
+                        <th>Varita</th>
+                        <th>Casa</th>
+                        <th>Patronus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let personaje of personajes; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>
+                            <img src="{{personaje.image}}" alt="" width="40px" (click)="modalImagen(personaje.image, personaje.name)">
+                        </td>
+                        <td>{{personaje.name}}</td>
+                        <td>{{personaje.gender}}</td>
+                        <td> madera:{{personaje.wand.wood}}<br> nucleo:{{personaje.wand.core}} </td>
+                        <td>{{personaje.house}}</td>
+                        <td>{{personaje.patronus}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary modalImagenPersonaje" data-toggle="modal" data-target="#imagenPersonaje">
+  modalimagen
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="imagenPersonaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">{{nombrePersonaje}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <img class="mx-auto d-block" src="{{imagenPersonaje}}" alt="" width="300px">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
