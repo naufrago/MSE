@@ -1,0 +1,104 @@
+<div class="container">
+
+
+
+
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title text-center">Tabla de resultados - {{tipoConsulta}}
+                <img class="mx-auto d-block" src="assets/img/{{tipoConsulta}}.png" alt="" width="100px">
+            </h3>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Genero</th>
+                            <th>Varita</th>
+                            <th>Casa</th>
+                            <th>Patronus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let personaje of personajes; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>
+                                <img src="{{personaje.image}}" alt="" width="40px" data-toggle="tooltip" data-placement="top" title="Ver resumen del personaje" (click)="modalImagen(personajes[i])">
+                            </td>
+                            <td>{{personaje.name}}</td>
+                            <td>{{personaje.gender}}</td>
+                            <td> <b>madera:</b>{{personaje.wand.wood}}<br>
+                                <b>nucleo:</b>{{personaje.wand.core}} <br>
+                                <b>longitud:</b>{{personaje.wand.length}}
+                            </td>
+                            <td>{{personaje.house}}</td>
+                            <td>{{personaje.patronus}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary modalImagenPersonaje" data-toggle="modal" data-target="#imagenPersonaje">
+modalimagen
+</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imagenPersonaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content mdResumen">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        <div *ngIf="DatosPersona.name !== undefined">{{DatosPersona.name?DatosPersona.name:''}}</div>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+                </div>
+                <div class="modal-body">
+                    <img class="mx-auto d-block" src="{{DatosPersona.image}}" alt="" width="300px">
+                    <div class="container ml-5 mt-3">
+
+                        <b>Genero:</b> {{DatosPersona.gender}}<br>
+                        <b>Varita:</b>
+                        <ul>
+                            <li><b>madera:</b> {{DatosPersona.wand.wood}}</li>
+                            <li><b>nucleo:</b> {{DatosPersona.wand.core}}</li>
+                            <li><b>longitud:</b> {{DatosPersona.wand.length}}</li>
+                        </ul>
+                        <b>Casa:</b> {{DatosPersona.house}} <br>
+                        <b>Patronus:</b> {{DatosPersona.patronus}}<br>
+                        <b>Especie:</b> {{DatosPersona.species}}<br>
+                        <b>Ancendencia:</b> {{DatosPersona.ancestry}}<br>
+                        <b>Fecha de nacimiento:</b> {{DatosPersona.dateOfBirth}}<br>
+                        <b>Color de ojos:</b> {{DatosPersona.eyeColour}}<br>
+                        <b>Color de pelo:</b> {{DatosPersona.hairColour}}<br>
+                        <b>Rol en Hogwarts:</b>
+                        <span *ngIf="DatosPersona.hogwartsStudent"> Estudiante</span>
+                        <span *ngIf="DatosPersona.hogwartsStaff"> Staff</span><br>
+                        <b>Nombre Actor:</b> {{DatosPersona.actor}}<br>
+                        <b>Vive:</b>
+                        <span *ngIf="DatosPersona.alive"> si</span>
+                        <span *ngIf="!DatosPersona.alive"> no</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>

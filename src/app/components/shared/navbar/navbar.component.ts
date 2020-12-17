@@ -1,4 +1,7 @@
+import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Component, OnInit } from '@angular/core';
+
+declare var $:any;
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public utilitiesService: UtilitiesService) {}
+
 
   ngOnInit() {
   }

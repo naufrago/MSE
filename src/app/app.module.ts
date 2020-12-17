@@ -8,6 +8,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentComponent } from './components/student/student.component';
+import { StaffComponent } from './components/staff/staff.component';
+import { HouseComponent } from './components/house/house.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     NavbarComponent,
     LoadingComponent,
-    HomeComponent
+    HomeComponent,
+    StudentComponent,
+    StaffComponent,
+    HouseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 export class UtilitiesService {
   loading: boolean = false;
   messageLoading: string = null;
+  classActive:string = "";
   constructor(private http: HttpClient) { }
 
   // hace el consumo a la api

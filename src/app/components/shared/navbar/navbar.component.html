@@ -13,17 +13,21 @@
                 <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" [routerLink]="['Student']" routerLinkActive="active">Student</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['Staff']" routerLinkActive="active">Staff</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
+                <a class="nav-link dropdown-toggle {{utilitiesService.classActive}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  House
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" [routerLink]="['house/Gryffindor']" routerLinkActive="active">Gryffindor</a>
+                    <a class="dropdown-item" [routerLink]="['house/Hufflepuff']" routerLinkActive="active">Hufflepuff</a>
+                    <a class="dropdown-item" [routerLink]="['house/Ravenclaw']" routerLinkActive="active">Ravenclaw</a>
+                    <a class="dropdown-item" [routerLink]="['house/Slytherin']" routerLinkActive="active">Slytherin</a>
+
                 </div>
             </li>
         </ul>

@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+.modalImagenPersonaje {
+    display: none;
+}
+
+.mdResumen,
+.dropdown-item.active {
+    background: #16222A;
+    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+    background: linear-gradient(59deg, #3A6073, #16222A);
+    color: white;
+}
+
+.mdResumen .modal-header,
+.mdResumen .modal-footer {
+    border-bottom: none;
+    border-top: none;
+}
+
+.card-header {
+    background: #16222A;
+    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+    background: linear-gradient(59deg, #3A6073, #16222A);
+    color: white;
+}

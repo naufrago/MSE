@@ -2,16 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Personaje } from './../../interface/personaje.interface';
 
-
-
 declare var $:any;
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-student',
+  templateUrl: './student.component.html',
+  styleUrls: ['./student.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class StudentComponent implements OnInit {
   public personajes:Personaje[];
   public DatosPersona:Personaje={
     "name":"",
@@ -36,17 +34,14 @@ export class HomeComponent implements OnInit {
   "image":""
   };
 
-  public tipoConsulta = "Todos los Personajes"
-
-
+  public tipoConsulta = "Todos los Estudiantes"
   constructor(
     public utilitiesService: UtilitiesService,
     ) {
       this.removeScript();
-      this.utilitiesService.classActive = "";
     this.utilitiesService.loading = true;
     this.utilitiesService.messageLoading = null;
-    this.utilitiesService.getQuery('/')
+    this.utilitiesService.getQuery('/students')
       .subscribe((resp:Personaje[])=>{
         // console.log(resp);
         this.personajes = resp;
@@ -72,11 +67,13 @@ export class HomeComponent implements OnInit {
     script.defer = true;
     script.id = "scriptdatatable";
     body.appendChild(script);
+
   }
 
   private  removeScript(){
     $('script#scriptdatatable').remove();
   }
+
   modalImagen(persona:Personaje){
     // console.log(persona);
     this.DatosPersona=persona;
@@ -85,7 +82,5 @@ export class HomeComponent implements OnInit {
     }, 200);
 
   }
-
-
 
 }
