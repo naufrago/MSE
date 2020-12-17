@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Personaje } from './../../interface/personaje.interface';
 
-
-
 declare var $:any;
 
 @Component({
@@ -13,51 +11,49 @@ declare var $:any;
 })
 export class HomeComponent implements OnInit {
   public personajes:Personaje[];
-  public DatosPersona:Personaje={
+  public DatosPersona:Personaje =
+  {
     "name":"",
-  "species":"",
-  "gender":"",
-  "house":"",
-  "dateOfBirth":"",
-  "yearOfBirth":0,
-  "ancestry":"",
-  "eyeColour":"",
-  "hairColour":"",
-  "wand":{
-    "wood":"",
-    "core":"",
-    "length":0
-  },
-  "patronus":"",
-  "hogwartsStudent":false,
-  "hogwartsStaff":false,
-  "actor":"",
-  "alive":false,
-  "image":""
+    "species":"",
+    "gender":"",
+    "house":"",
+    "dateOfBirth":"",
+    "yearOfBirth":0,
+    "ancestry":"",
+    "eyeColour":"",
+    "hairColour":"",
+    "wand":{
+      "wood":"",
+      "core":"",
+      "length":0
+    },
+    "patronus":"",
+    "hogwartsStudent":false,
+    "hogwartsStaff":false,
+    "actor":"",
+    "alive":false,
+    "image":""
   };
 
   public tipoConsulta = "Todos los Personajes"
-
 
   constructor(
     public utilitiesService: UtilitiesService,
     ) {
       this.removeScript();
       this.utilitiesService.classActive = "";
-    this.utilitiesService.loading = true;
-    this.utilitiesService.messageLoading = null;
-    this.utilitiesService.getQuery('/')
-      .subscribe((resp:Personaje[])=>{
-        // console.log(resp);
-        this.personajes = resp;
-        // this.DatosPersona = resp[0];
-        setTimeout(() => {
-          this.loadScript();
-          this.utilitiesService.loading = false;
-        }, 3000);
-      });
-
-
+      this.utilitiesService.loading = true;
+      this.utilitiesService.messageLoading = null;
+      this.utilitiesService.getQuery('/')
+        .subscribe((resp:Personaje[])=>{
+          // console.log(resp);
+          this.personajes = resp;
+          // this.DatosPersona = resp[0];
+          setTimeout(() => {
+            this.loadScript();
+            this.utilitiesService.loading = false;
+          }, 3000);
+        });
    }
 
   ngOnInit() {
@@ -77,15 +73,13 @@ export class HomeComponent implements OnInit {
   private  removeScript(){
     $('script#scriptdatatable').remove();
   }
+
   modalImagen(persona:Personaje){
     // console.log(persona);
     this.DatosPersona=persona;
     setTimeout(() => {
       $('.modalImagenPersonaje').click();
     }, 200);
-
   }
-
-
 
 }

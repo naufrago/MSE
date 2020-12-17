@@ -1,49 +1,41 @@
 <div class="container">
-
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Tabla de resultados - {{tipoConsulta}}</h3>
         </div>
         <div class="card-body">
-            <div>
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Genero</th>
-                            <th>Varita</th>
-                            <th>Casa</th>
-                            <th>Patronus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let personaje of personajes; let i = index">
-                            <th scope="row">{{i+1}}</th>
-                            <td>
-                                <img src="{{personaje.image}}" alt="" width="40px" data-toggle="tooltip" data-placement="top" title="Ver resumen del personaje" (click)="modalImagen(personajes[i])">
-                            </td>
-                            <td>{{personaje.name}}</td>
-                            <td>{{personaje.gender}}</td>
-                            <td> <b>madera:</b>{{personaje.wand.wood}}<br>
-                                <b>nucleo:</b>{{personaje.wand.core}} <br>
-                                <b>longitud:</b>{{personaje.wand.length}}
-                            </td>
-                            <td>{{personaje.house}}</td>
-                            <td>{{personaje.patronus}}</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-            </div>
-
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Genero</th>
+                        <th>Varita</th>
+                        <th>Casa</th>
+                        <th>Patronus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let personaje of personajes; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>
+                            <img src="{{personaje.image}}" alt="" width="40px" data-toggle="tooltip" data-placement="top" title="Ver resumen del personaje" (click)="modalImagen(personajes[i])">
+                        </td>
+                        <td>{{personaje.name}}</td>
+                        <td>{{personaje.gender?personaje.gender:'sin datos'}}</td>
+                        <td> <b>madera:</b> {{personaje.wand.wood?personaje.wand.wood:'sin datos'}}<br>
+                            <b>nucleo:</b> {{personaje.wand.core?personaje.wand.core:'sin datos'}} <br>
+                            <b>longitud:</b> {{personaje.wand.length?personaje.wand.length:'sin datos'}}
+                        </td>
+                        <td>{{personaje.house?personaje.house:'sin datos'}}</td>
+                        <td>{{personaje.patronus?personaje.patronus:'sin datos'}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-
-
-
 
 
 
@@ -61,31 +53,31 @@ modalimagen
                     <div *ngIf="DatosPersona.name !== undefined">{{DatosPersona.name?DatosPersona.name:''}}</div>
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
             <div class="modal-body">
                 <img class="mx-auto d-block" src="{{DatosPersona.image}}" alt="" width="300px">
                 <div class="container ml-5 mt-3">
-
-                    <b>Genero:</b> {{DatosPersona.gender}}<br>
+                    <b>Genero:</b> {{DatosPersona.gender?DatosPersona.gender:'sin datos'}}<br>
                     <b>Varita:</b>
                     <ul>
-                        <li><b>madera:</b> {{DatosPersona.wand.wood}}</li>
-                        <li><b>nucleo:</b> {{DatosPersona.wand.core}}</li>
-                        <li><b>longitud:</b> {{DatosPersona.wand.length}}</li>
+                        <li><b>madera:</b> {{DatosPersona.wand.wood?DatosPersona.wand.wood:'sin datos'}}</li>
+                        <li><b>nucleo:</b> {{DatosPersona.wand.core?DatosPersona.wand.core:'sin datos'}}</li>
+                        <li><b>longitud:</b> {{DatosPersona.wand.length?DatosPersona.wand.length:'sin datos'}}</li>
                     </ul>
-                    <b>Casa:</b> {{DatosPersona.house}} <br>
-                    <b>Patronus:</b> {{DatosPersona.patronus}}<br>
-                    <b>Especie:</b> {{DatosPersona.species}}<br>
-                    <b>Ancendencia:</b> {{DatosPersona.ancestry}}<br>
-                    <b>Fecha de nacimiento:</b> {{DatosPersona.dateOfBirth}}<br>
-                    <b>Color de ojos:</b> {{DatosPersona.eyeColour}}<br>
-                    <b>Color de pelo:</b> {{DatosPersona.hairColour}}<br>
+                    <b>Casa:</b> {{DatosPersona.house?DatosPersona.house:'sin datos'}}
+                    <img *ngIf="DatosPersona.house" src="assets/img/{{DatosPersona.house}}.png" alt="" width="50px"><br>
+                    <b>Patronus:</b> {{DatosPersona.patronus?DatosPersona.patronus:'sin datos'}}<br>
+                    <b>Especie:</b> {{DatosPersona.species?DatosPersona.species:'sin datos'}}<br>
+                    <b>Ancendencia:</b> {{DatosPersona.ancestry?DatosPersona.ancestry:'sin datos'}}<br>
+                    <b>Fecha de nacimiento:</b> {{DatosPersona.dateOfBirth?DatosPersona.dateOfBirth:'sin datos'}}<br>
+                    <b>Color de ojos:</b> {{DatosPersona.eyeColour?DatosPersona.eyeColour:'sin datos'}}<br>
+                    <b>Color de pelo:</b> {{DatosPersona.hairColour?DatosPersona.hairColour:'sin datos'}}<br>
                     <b>Rol en Hogwarts:</b>
                     <span *ngIf="DatosPersona.hogwartsStudent"> Estudiante</span>
                     <span *ngIf="DatosPersona.hogwartsStaff"> Staff</span><br>
-                    <b>Nombre Actor:</b> {{DatosPersona.actor}}<br>
+                    <b>Nombre Actor:</b> {{DatosPersona.actor?DatosPersona.actor:'sin datos'}}<br>
                     <b>Vive:</b>
                     <span *ngIf="DatosPersona.alive"> si</span>
                     <span *ngIf="!DatosPersona.alive"> no</span>
