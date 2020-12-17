@@ -4,35 +4,38 @@
             <h3 class="card-title">Tabla de resultados - {{tipoConsulta}}</h3>
         </div>
         <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Imagen</th>
-                        <th>Nombre</th>
-                        <th>Genero</th>
-                        <th>Varita</th>
-                        <th>Casa</th>
-                        <th>Patronus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let personaje of personajes; let i = index">
-                        <th scope="row">{{i+1}}</th>
-                        <td>
-                            <img src="{{personaje.image}}" alt="" width="40px" data-toggle="tooltip" data-placement="top" title="Ver resumen del personaje" (click)="modalImagen(personajes[i])">
-                        </td>
-                        <td>{{personaje.name}}</td>
-                        <td>{{personaje.gender?personaje.gender:'sin datos'}}</td>
-                        <td> <b>madera:</b> {{personaje.wand.wood?personaje.wand.wood:'sin datos'}}<br>
-                            <b>nucleo:</b> {{personaje.wand.core?personaje.wand.core:'sin datos'}} <br>
-                            <b>longitud:</b> {{personaje.wand.length?personaje.wand.length:'sin datos'}}
-                        </td>
-                        <td>{{personaje.house?personaje.house:'sin datos'}}</td>
-                        <td>{{personaje.patronus?personaje.patronus:'sin datos'}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Genero</th>
+                            <th>Varita</th>
+                            <th>Casa</th>
+                            <th>Patronus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let personaje of personajes; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>
+                                <img src="{{personaje.image}}" alt="" width="40px" data-toggle="tooltip" data-placement="top" title="Ver resumen del personaje" (click)="modalImagen(personajes[i])">
+                            </td>
+                            <td>{{personaje.name}}</td>
+                            <td>{{personaje.gender?personaje.gender:'sin datos'}}</td>
+                            <td> <b>madera:</b> {{personaje.wand.wood?personaje.wand.wood:'sin datos'}}<br>
+                                <b>nucleo:</b> {{personaje.wand.core?personaje.wand.core:'sin datos'}} <br>
+                                <b>longitud:</b> {{personaje.wand.length?personaje.wand.length:'sin datos'}}
+                            </td>
+                            <td>{{personaje.house?personaje.house:'sin datos'}}</td>
+                            <td>{{personaje.patronus?personaje.patronus:'sin datos'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 </div>
